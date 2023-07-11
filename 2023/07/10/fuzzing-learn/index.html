@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://example.com/Users/jvl/Desktop/hexoblog2/source/_posts/img/img4.png">
 <meta property="og:image" content="http://example.com/Users/jvl/Desktop/hexoblog2/source/_posts/img/img6.png">
 <meta property="article:published_time" content="2023-07-10T15:01:02.000Z">
-<meta property="article:modified_time" content="2023-07-11T09:48:05.623Z">
+<meta property="article:modified_time" content="2023-07-11T09:48:44.143Z">
 <meta property="article:author" content="wzq">
 <meta property="article:tag" content="关于fuzzing模糊测试的学习">
 <meta name="twitter:card" content="summary">
@@ -271,7 +271,7 @@
 <h2 id="二-实验环境"><a href="#二-实验环境" class="headerlink" title="二.实验环境"></a>二.实验环境</h2><p>​		在<strong>Ubuntu 20.04.2 LTS</strong>上进行了测试</p>
 <p>​		用如下代码安装环境：<strong>sudo apt install build-essential</strong></p>
 <p>​					<strong>wget https:&#x2F;dl.xpdfreader.com&#x2F;old&#x2F;xpdf-3.02.tar.gz</strong><br>​					<strong>tar -xvzf xpdf-3.02.tar.gz</strong></p>
-<p>​		运行  **$HOME&#x2F;fuzzing_xpdf&#x2F;install&#x2F;bin&#x2F;pdfinfo -box -meta $HOME&#x2F;fuzzing_xpdf&#x2F;pdf_examples&#x2F;helloworld.pdf ** 有如下窗口</p>
+<p>​		运行   $HOME&#x2F;fuzzing_xpdf&#x2F;install&#x2F;bin&#x2F;pdfinfo -box -meta $HOME&#x2F;fuzzing_xpdf&#x2F;pdf_examples&#x2F;helloworld.pdf   有如下窗口</p>
 <img src="/Users/jvl/Desktop/hexoblog2/source/_posts/img/img1.png" alt="img1" style="zoom:50%;" />
 
 <h2 id="三-AFL-安装"><a href="#三-AFL-安装" class="headerlink" title="三.AFL++安装"></a>三.AFL++安装</h2><p>​		AFL 是一种<strong>覆盖率引导的模糊器</strong>，这意味着它会收集每个变异输入的覆盖率信息，以发现新的执行路径和潜在的错误。当源代码可用时，AFL 可以使用检测，在每个基本块（函数、循环等）的开头插入函数调用。</p>
