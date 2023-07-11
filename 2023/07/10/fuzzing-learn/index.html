@@ -17,18 +17,18 @@
 <meta property="og:site_name" content="LZD">
 <meta property="og:description" content="fuzzing  一.Fuzzing​		模糊测试（Fuzz Testing）是一种自动化的软件测试技术，最初是由威斯康辛大学的巴顿·米勒于1989年开发的，通常用于识别程序中的潜在漏洞。模糊测试的核心是自动或半自动的生成随机数据输入到应用程序中，同时监控程序的异常情况，如崩溃、代码断言失败，以此发现可能的程序错误，如内存泄漏。模糊化是指自动生成和执行测试，模糊测试中输入的随机数据被称为“Fuzz">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img1.jpg">
+<meta property="og:image" content="https://lzdjvl.github.io/img/img1.jpg">
 <meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img2.jpg">
 <meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img3.jpg">
 <meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img4.jpg">
 <meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img5.jpg">
 <meta property="og:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img6.jpg">
 <meta property="article:published_time" content="2023-07-10T15:01:02.000Z">
-<meta property="article:modified_time" content="2023-07-11T12:19:35.620Z">
+<meta property="article:modified_time" content="2023-07-11T12:55:17.493Z">
 <meta property="article:author" content="wzq">
 <meta property="article:tag" content="关于fuzzing模糊测试的学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lzdjvl/LZDJVL.github.io/blob/master/img/img1.jpg">
+<meta name="twitter:image" content="https://lzdjvl.github.io/img/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LZD" type="application/atom+xml">
   
@@ -274,7 +274,7 @@
 <p>​		用如下代码安装环境：<strong>sudo apt install build-essential</strong></p>
 <p>​					<strong>wget https:&#x2F;dl.xpdfreader.com&#x2F;old&#x2F;xpdf-3.02.tar.gz</strong><br>​					<strong>tar -xvzf xpdf-3.02.tar.gz</strong></p>
 <p>​		运行   $HOME&#x2F;fuzzing_xpdf&#x2F;install&#x2F;bin&#x2F;pdfinfo -box -meta $HOME&#x2F;fuzzing_xpdf&#x2F;pdf_examples&#x2F;helloworld.pdf   有如下窗口</p>
-<img src="//LZDJVL/LZDJVL.github.io/blob/master/img/img1.jpg" alt="img1" style="zoom:50%;">
+<img src="https://LZDJVL.github.io/img/img1.jpg" alt="img1" style="zoom:50%;">
 
 <h2 id="三-AFL-安装"><a href="#三-AFL-安装" class="headerlink" title="三.AFL++安装"></a>三.AFL++安装</h2><p>​		AFL 是一种<strong>覆盖率引导的模糊器</strong>，这意味着它会收集每个变异输入的覆盖率信息，以发现新的执行路径和潜在的错误。当源代码可用时，AFL 可以使用检测，在每个基本块（函数、循环等）的开头插入函数调用。</p>
 <img src="//LZDJVL/LZDJVL.github.io/blob/master/img/img2.jpg" alt="img2" style="zoom:50%;">
