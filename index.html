@@ -274,7 +274,7 @@
 <h2 id="四-问题解决"><a href="#四-问题解决" class="headerlink" title="四.问题解决"></a>四.问题解决</h2><p>​		在目录中找到崩溃对应的文件，**id:000000,sig:11,src:001125,time:120003,execs:214718,op:havoc,rep:3pdftotext **作为二进制文件的输入传递。</p>
 <img src="https://LZDJVL.github.io/img/img4.jpg" alt="img4" style="zoom:50%;">
 
-<p>​		使用 gdb 找出程序因该输入而崩溃的原因，使用调试信息重建 Xpdf 以获取符号堆栈跟踪，run之后，发现许多“Parser::getObj”方法的调用。</p>
+<p>​		使用 gdb 找出程序因该输入而崩溃的原因，使用调试信息重建 Xpdf 以获取符号堆栈跟踪，run,bt之后，发现许多“Parser::getObj”方法的调用。</p>
 <img src="https://LZDJVL.github.io/img/img5.jpg" alt="img5" style="zoom:50%;">
 
 <img src="https://LZDJVL.github.io/img/img6.jpg" alt="img6" style="zoom:50%;">
