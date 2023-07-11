@@ -253,7 +253,7 @@
 <img src="/Users/jvl/Desktop/hexoblog2/source/_posts/img/img1.png" alt="img1" style="zoom:50%;" />
 
 <h2 id="三-AFL-安装"><a href="#三-AFL-安装" class="headerlink" title="三.AFL++安装"></a>三.AFL++安装</h2><p>​		AFL 是一种<strong>覆盖率引导的模糊器</strong>，这意味着它会收集每个变异输入的覆盖率信息，以发现新的执行路径和潜在的错误。当源代码可用时，AFL 可以使用检测，在每个基本块（函数、循环等）的开头插入函数调用。</p>
-<img src="/Users/jvl/Desktop/hexoblog2/source/_posts/img/img2.png" alt="img2" style="zoom:50%;" />
+<img src="/hexoblog2/source/_posts/img/img1.jpg">
 
 <p>​		以下命令运行模糊器：<strong>afl-fuzz -i $HOME&#x2F;fuzzing_xpdf&#x2F;pdf_examples&#x2F; -o $HOME&#x2F;fuzzing_xpdf&#x2F;out&#x2F; -s 123 – $HOME&#x2F;fuzzing_xpdf&#x2F;install&#x2F;bin&#x2F;pdftotext @@ $HOME&#x2F;fuzzing_xpdf&#x2F;output</strong></p>
 <p>​		每个选项的简要说明：</p>
@@ -269,7 +269,7 @@
 <p>此句将pdf指定输出，红色的<strong>“uniq.crashes”</strong>值，显示发现的唯一崩溃的数量。</p>
 </li>
 </ul>
-<img src="/Users/jvl/Desktop/hexoblog2/source/_posts/img/img3.png" alt="img3" style="zoom:50%;" />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;/hexoblog2/source/_posts/img/img2.jpg&quot;&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="四-问题解决"><a href="#四-问题解决" class="headerlink" title="四.问题解决"></a>四.问题解决</h2><p>​		在目录中找到崩溃对应的文件，**id:000000,sig:11,src:001125,time:120003,execs:214718,op:havoc,rep:3pdftotext **作为二进制文件的输入传递。</p>
 <img src="/Users/jvl/Desktop/hexoblog2/source/_posts/img/img4.png" alt="img4" style="zoom:50%;" />
