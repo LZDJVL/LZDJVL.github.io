@@ -92,12 +92,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
         </ul>
       </div>
     <div id="waves">
@@ -124,7 +124,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/21/zsh/" itemprop="url" title="关于MacOS 安装配置 zsh"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></a>
+    <a href="/2023/07/21/zsh/" itemprop="url" title="关于MacOS 安装配置 zsh"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></a>
   </div>
   <div class="info">
     
@@ -149,7 +149,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/21/pwn-01/" itemprop="url" title="学习pwn的第一天"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></a>
+    <a href="/2023/07/21/pwn-01/" itemprop="url" title="学习pwn的第一天"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></a>
   </div>
   <div class="info">
     
@@ -164,26 +164,36 @@
 
     <h3><a href="/2023/07/21/pwn-01/" itemprop="url" title="学习pwn的第一天">学习pwn的第一天</a></h3>
     <div class="excerpt">
-        学习内容关于ctf的基本认识与pwn的理解，目前先定从pwn方向开始学习
+        1.学习内容关于ctf的基本认识与pwn的理解，目前先定从pwn方向开始学习
 今天回顾了关于栈帧与栈溢出漏洞的基础原理
 每一个程序系统会为其单独建立一个虚拟内存，在每一个虚拟内存中程序的分布如下
 
 其中
-Stack 栈区
-Heap 堆区
-BSS 存放未初始化的全局&amp;#x2F;静态变量（未画出）
-Data 为数据段，存放由程序员初始化的全局&amp;#x2F;静态变量
-Text 为不可修改字段（主要为代码）
-栈区
 
-每个栈内按照
+Stack 栈区
+
+Heap 堆区
+
+BSS 存放未初始化的全局&amp;#x2F;静态变量（未画出）
+
+Data 为数据段，存放由程序员初始化的全局&amp;#x2F;静态变量
+
+Text 为不可修改字段（主要为代码）
+
+2.栈区
+
+每个栈内按照：
+
 参数（倒序）
+
 返回地址
+
 前帧指针
+
 局部变量
+
 的顺序由高地址到低地址排列
-Return Address 返回地址
-前帧指针...
+Return Address 返回地址...
     </div>
     <a href="/2023/07/21/pwn-01/" itemprop="url" title="学习pwn的第一天" class="btn">more...</a>
   </div>
@@ -192,7 +202,7 @@ Return Address 返回地址
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/10/fuzzing-learn/" itemprop="url" title="fuzzing_learn"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></a>
+    <a href="/2023/07/10/fuzzing-learn/" itemprop="url" title="fuzzing_learn"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></a>
   </div>
   <div class="info">
     
@@ -218,7 +228,7 @@ Return Address 返回地址
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/09/reader/" itemprop="url" title="reader"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></a>
+    <a href="/2023/07/09/reader/" itemprop="url" title="reader"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></a>
   </div>
   <div class="info">
     
@@ -245,7 +255,7 @@ Return Address 返回地址
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/09/post1/" itemprop="url" title="post1"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></a>
+    <a href="/2023/07/09/post1/" itemprop="url" title="post1"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
@@ -269,7 +279,7 @@ Return Address 返回地址
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/09/hello-world/" itemprop="url" title="Hello World"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></a>
+    <a href="/2023/07/09/hello-world/" itemprop="url" title="Hello World"><img data-src="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></a>
   </div>
   <div class="info">
     
@@ -391,25 +401,25 @@ Run server1$...
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/21/pwn-01/" title="学习pwn的第一天">学习pwn的第一天</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/07/09/post1/" title="post1">post1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/09/reader/" title="reader">reader</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/09/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -436,7 +446,7 @@ Run server1$...
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/reader/" title="reader">reader</a></span>
+    <span><a href="/2023/07/21/pwn-01/" title="学习pwn的第一天">学习pwn的第一天</a></span>
   </li>
 
   </ul>
