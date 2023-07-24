@@ -104,12 +104,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     <div id="waves">
@@ -153,7 +153,53 @@
   <div class="body md" itemprop="articleBody">
     
 
-    
+    <h1 id="1-任务目标"><a href="#1-任务目标" class="headerlink" title="1.任务目标"></a>1.任务目标</h1><p>为了完成本练习，您需要：</p>
+<ul>
+<li>查找使用 libexif 库的接口应用程序</li>
+<li>创建 exif 样本的种子语料库</li>
+<li>使用 afl-clang-lto 编译 libexif 和选择的要进行模糊测试的应用程序</li>
+<li>模糊 libexif 直到出现一些独特的崩溃</li>
+<li>对崩溃进行分类，为每个漏洞找到一个 PoC</li>
+<li>修复问题</li>
+</ul>
+<h1 id="2-实验过程"><a href="#2-实验过程" class="headerlink" title="2.实验过程"></a>2.实验过程</h1><p>打开目标目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_libexif &amp;&amp; cd fuzzing_libexif/</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压 并安装libexif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd libexif-libexif-0_6_14-release/</span><br><span class="line">sudo apt-get install autopoint libtool gettext libpopt-dev</span><br><span class="line">autoreconf -fvi</span><br><span class="line">./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_libexif</span><br><span class="line">wget https://github.com/libexif/exif/archive/refs/tags/exif-0_6_15-release.tar.gz</span><br><span class="line">tar -xzvf exif-0_6_15-release.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用exif 命令行，构建并安装 exif 命令行实用程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd exif-exif-0_6_15-release/</span><br><span class="line">autoreconf -fvi</span><br><span class="line">./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; PKG_CONFIG_PATH=$HOME/fuzzing_libexif/install/lib/pkgconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>测试一下</p>
+<img data-src="https://LZDJVL.github.io/img/execrise02/execrise02_2.jpg" alt="img1" style="zoom:50%;">
+
+<p>使用<strong>afl-clang-lto</strong>作为编译器来构建 libexif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_libexif/install</span><br><span class="line">cd $HOME/fuzzing_libexif/libexif-libexif-0_6_14-release/</span><br><span class="line">make clean</span><br><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">cd $HOME/fuzzing_libexif/exif-exif-0_6_15-release</span><br><span class="line">make clean</span><br><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; PKG_CONFIG_PATH=$HOME/fuzzing_libexif/install/lib/pkgconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://LZDJVL.github.io/img/execrise02/execrise02_4.jpg" alt="img3" style="zoom:50%;">
+
+<p>Ps:如果您不确定何时使用<em>afl-clang-lto</em>或<em>afl-clang-fast，</em>您可以查看从 AFLplusplus 中提的下图<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FGTHBsdXNwbHVzL0FGTHBsdXNwbHVzIzEtaW5zdHJ1bWVudGluZy10aGF0LXRhcmdldA==">：检测该目标</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">+--------------------------------+</span><br><span class="line">| clang/clang++ 11+ is available | --&gt; use LTO mode (afl-clang-lto/afl-clang-lto++)</span><br><span class="line">+--------------------------------+     see [instrumentation/README.lto.md](instrumentation/README.lto.md)</span><br><span class="line">    |</span><br><span class="line">    | if not, or if the target fails with LTO afl-clang-lto/++</span><br><span class="line">    |</span><br><span class="line">    v</span><br><span class="line">+---------------------------------+</span><br><span class="line">| clang/clang++ 6.0+ is available | --&gt; use LLVM mode (afl-clang-fast/afl-clang-fast++)</span><br><span class="line">+---------------------------------+     see [instrumentation/README.llvm.md](instrumentation/README.llvm.md)</span><br><span class="line">    |</span><br><span class="line">    | if not, or if the target fails with LLVM afl-clang-fast/++</span><br><span class="line">    |</span><br><span class="line">    v</span><br><span class="line"> +--------------------------------+</span><br><span class="line"> | gcc 5+ is available            | -&gt; use GCC_PLUGIN mode (afl-gcc-fast/afl-g++-fast)</span><br><span class="line"> +--------------------------------+    see [instrumentation/README.gcc_plugin.md](instrumentation/README.gcc_plugin.md) and</span><br><span class="line">                                       [instrumentation/README.instrument_list.md](instrumentation/README.instrument_list.md)</span><br><span class="line">    |</span><br><span class="line">    | if not, or if you do not have a gcc with plugin support</span><br><span class="line">    |</span><br><span class="line">    v</span><br><span class="line">   use GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)</span><br></pre></td></tr></table></figure>
+
+<p>使用以下命令运行模糊器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">afl-fuzz -i $HOME/fuzzing_libexif/exif-samples-master/jpg/ -o $HOME/fuzzing_libexif/out/ -s 123 -- $HOME/fuzzing_libexif/install/bin/exif @@</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://LZDJVL.github.io/img/execrise02/execrise02_4.jpg" alt="img3" style="zoom:50%;">
+
+<p>由于未能成功打开eclipse，此处仍然使用gdb调试，输入一下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb --args $HOME/fuzzing_libexif/install/bin/exif $HOME/fuzzing_libexif/out/default/crashes/id:000000,sig:11,src:000300,time:30755,execs:40112,op:havoc,rep:1 $HOME/fuzzing_libexif/output</span><br></pre></td></tr></table></figure>
+
+<p>run bt回溯之后现显示</p>
+<img data-src="https://LZDJVL.github.io/img/execrise02/execrise02_5.jpg" alt="img4" style="zoom:50%;">
+
+
+
+
+
+
       <div class="tags">
           <a href="/tags/fuzzing/" rel="tag"><i class="ic i-tag"></i> fuzzing</a>
       </div>
@@ -167,7 +213,7 @@
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-24 22:39:11" itemprop="dateModified" datetime="2023-07-24T22:39:11+08:00">2023-07-24</time>
+    <time title="修改时间：2023-07-24 23:17:19" itemprop="dateModified" datetime="2023-07-24T23:17:19+08:00">2023-07-24</time>
   </span>
 </div>
 
@@ -199,7 +245,7 @@
     <div class="item left">
       
 
-  <a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gipexoj0moj20zk0m8kgu.jpg" title="论文写作01">
+  <a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gipevuctzzj20zk0m84qp.jpg" title="论文写作01">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>论文写作01</h3>
@@ -223,6 +269,7 @@
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%BB%E5%8A%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">1.任务目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2.实验过程</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -305,7 +352,7 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/reader/" title="reader">reader</a></span>
+    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AF%BB%E5%90%8E%E6%84%9F-1/" title="读后感_文件检索与综述1">读后感_文件检索与综述1</a></span>
   </li>
 
       
@@ -323,7 +370,25 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/07/09/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/reader/" title="reader">reader</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/21/%E6%9D%82%E9%A1%B9/zsh/" title="关于MacOS 安装配置 zsh">关于MacOS 安装配置 zsh</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
   </li>
 
       
@@ -350,15 +415,6 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/post1/" title="post1">post1</a></span>
   </li>
 
@@ -368,16 +424,7 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/21/%E6%9D%82%E9%A1%B9/zsh/" title="关于MacOS 安装配置 zsh">关于MacOS 安装配置 zsh</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AF%BB%E5%90%8E%E6%84%9F-1/" title="读后感_文件检索与综述1">读后感_文件检索与综述1</a></span>
+    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
   </ul>
