@@ -104,12 +104,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
         </ul>
       </div>
     <div id="waves">
@@ -172,13 +172,13 @@
 
 <ol>
 <li><strong>二进制文件解析器</strong>  ARBITER使用二进制文件解析器将二进制文件转换为中间表示形式，以便进行静态分析和动态符号执行。 </li>
-<li>**静态分析器 ** ARBITER使用静态分析器对二进制文件进行静态分析，以发现其中的漏洞。静态分析器包括基于模式匹配的漏洞检测和基于符号执行的路径探索等技术。 </li>
-<li>**动态符号执行器 ** ARBITER使用动态符号执行器对二进制文件进行动态符号执行，以发现其中的漏洞。动态符号执行器包括基于符号执行的路径探索和基于覆盖率的漏洞检测等技术。</li>
-<li>**自适应误报过滤 ** ARBITER引入了自适应误报过滤技术，使用静态和动态技术进行误报过滤，以在准确性和性能之间进行可配置的权衡。 </li>
+<li><strong>静态分析器</strong> ARBITER使用静态分析器对二进制文件进行静态分析，以发现其中的漏洞。静态分析器包括基于模式匹配的漏洞检测和基于符号执行的路径探索等技术。 </li>
+<li><strong>动态符号执行器</strong> ARBITER使用动态符号执行器对二进制文件进行动态符号执行，以发现其中的漏洞。动态符号执行器包括基于符号执行的路径探索和基于覆盖率的漏洞检测等技术。</li>
+<li><strong>自适应误报过滤</strong> ARBITER引入了自适应误报过滤技术，使用静态和动态技术进行误报过滤，以在准确性和性能之间进行可配置的权衡。 </li>
 <li><strong>漏洞报告</strong>  ARBITER生成漏洞报告，包括漏洞类型、漏洞位置、漏洞影响等信息。</li>
 </ol>
 <p>漏洞检测的动态技术是指使用动态分析方法来检测二进制程序中的漏洞。这些方法包括模糊测试（fuzzing）、动态污点分析（dynamic taint analysis）、动态符号执行（dynamic symbolic execution）等。这些方法的共同点是需要在程序运行时执行目标程序，通过监视程序的执行过程来发现漏洞。与静态分析方法相比，动态分析方法通常更具可扩展性，但准确性可能会受到一定的影响。因此，本文提出了一种将静态和动态技术有机结合的方法，以提高漏洞检测的准确性和可扩展性。</p>
-<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p>作者在四个常见的漏洞类别上进行了大规模评估，分别是格式字符串漏洞、整数溢出漏洞、缓冲区溢出漏洞和空指针解引用漏洞。作者使用ARBITER框架对76,516个二进制文件进行了分析，并在这些漏洞类别中发现了大量的漏洞。具体来说，作者在测试用例中发现了190个格式字符串漏洞、1,045个整数溢出漏洞、1,774个缓冲区溢出漏洞和1,019个空指针解引用漏洞。这些结果表明，ARBITER可以在大规模的二进制文件中有效地识别多种漏洞类型。</p>
+<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p>​		作者在四个常见的漏洞类别上进行了大规模评估，分别是<strong>格式字符串漏洞</strong>、<strong>整数溢出漏洞</strong>、<strong>缓冲区溢出漏洞</strong>和<strong>空指针解引用漏洞</strong>。作者使用ARBITER框架对76,516个二进制文件进行了分析，并在这些漏洞类别中发现了大量的漏洞。具体来说，作者在测试用例中发现了190个格式字符串漏洞、1,045个整数溢出漏洞、1,774个缓冲区溢出漏洞和1,019个空指针解引用漏洞。这些结果表明，ARBITER可以在大规模的二进制文件中有效地识别多种漏洞类型。</p>
 <p>- </p>
 
       <div class="tags">
@@ -194,7 +194,7 @@
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-28 14:53:02" itemprop="dateModified" datetime="2023-07-28T14:53:02+08:00">2023-07-28</time>
+    <time title="修改时间：2023-07-28 14:55:22" itemprop="dateModified" datetime="2023-07-28T14:55:22+08:00">2023-07-28</time>
   </span>
 </div>
 
@@ -226,7 +226,7 @@
     <div class="item left">
       
 
-  <a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB01/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gicis081o9j20zk0m8dmr.jpg" title="FREEWILL通过二进制文件上的参考错误检测UAFbug">
+  <a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB01/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gicitf0kl1j20zk0m87fe.jpg" title="FREEWILL通过二进制文件上的参考错误检测UAFbug">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>FREEWILL通过二进制文件上的参考错误检测UAFbug</h3>
@@ -333,60 +333,6 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/reader/" title="reader">reader</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB01/" title="FREEWILL通过二进制文件上的参考错误检测UAFbug">FREEWILL通过二进制文件上的参考错误检测UAFbug</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AF%BB%E5%90%8E%E6%84%9F-1/" title="读后感_文件检索与综述1">读后感_文件检索与综述1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/post1/" title="post1">post1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/21/%E6%9D%82%E9%A1%B9/zsh/" title="关于MacOS 安装配置 zsh">关于MacOS 安装配置 zsh</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/07/25/execrise/exercise03/" title="exercise03">exercise03</a></span>
   </li>
 
@@ -405,7 +351,16 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/24/execrise/execrise02/" title="execrise02">execrise02</a></span>
+    <span><a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB02/" title="仲裁:桥接静态和动态鸿沟在漏洞发现二进制程序">仲裁:桥接静态和动态鸿沟在漏洞发现二进制程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/21/%E6%9D%82%E9%A1%B9/zsh/" title="关于MacOS 安装配置 zsh">关于MacOS 安装配置 zsh</a></span>
   </li>
 
       
@@ -415,6 +370,51 @@
 </div>
 
     <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/09/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/reader/" title="reader">reader</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/10/execrise/exercise01/" title="exercise01">exercise01</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AF%BB%E5%90%8E%E6%84%9F-1/" title="读后感_文件检索与综述1">读后感_文件检索与综述1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/post1/" title="post1">post1</a></span>
   </li>
 
   </ul>
