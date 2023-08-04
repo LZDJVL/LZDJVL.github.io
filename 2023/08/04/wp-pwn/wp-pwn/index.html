@@ -28,10 +28,10 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="pwn" />
+  <meta name="keywords" content="wp pwn" />
 
 
-<link rel="canonical" href="http://example.com/2023/07/31/pwn%E7%8E%AF%E5%A2%83/">
+<link rel="canonical" href="http://example.com/2023/08/04/wp-pwn/wp-pwn/">
 
 
 
@@ -62,16 +62,16 @@
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">pwn环境
+  <h1 itemprop="name headline">wp_pwn
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-31 18:56:54">
+  <span class="item" title="创建时间：2023-08-04 16:24:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-31T18:56:54+08:00">2023-07-31</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-08-04T16:24:00+08:00">2023-08-04</time>
   </span>
 </div>
 
@@ -104,12 +104,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
           <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://image.baidu.com/search/down?url=https://lz.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     <div id="waves">
@@ -138,7 +138,7 @@
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/31/pwn%E7%8E%AF%E5%A2%83/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/04/wp-pwn/wp-pwn/">
 
 <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="http://q1.qlogo.cn/g?b=qq&nk=2028135330&s=4">
@@ -153,12 +153,31 @@
   <div class="body md" itemprop="articleBody">
     
 
-    <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vVnhlckxlZS9wLzE1NDI0OTM3Lmh0bWwjNTEwOTcxNA==">https://www.cnblogs.com/VxerLee/p/15424937.html#5109714</span></p>
-<p>捣鼓了一个周还是这个好用</p>
-<p>环境：<strong>kali</strong> + <strong>pd虚拟机</strong></p>
+    <h3 id="1-bof"><a href="#1-bof" class="headerlink" title="1.bof"></a>1.bof</h3><p><strong>（1）栈保护</strong></p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/wp_pwn_101.jpg" alt="img1" style="zoom:50%;">
+
+<p><strong>（2）思路</strong></p>
+<p>利用栈溢出到system_plt的地址，再存入参数“&#x2F;bin&#x2F;sh”</p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/wp_pwn_102.jpg" alt="img2" style="zoom:50%;">
+
+<h3 id="2-ROP"><a href="#2-ROP" class="headerlink" title="2.ROP"></a>2.ROP</h3><p><strong>（1）栈保护</strong></p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/pwn_wp_205.jpg" alt="img3" style="zoom:50%;">
+
+<p><strong>（2）思路</strong></p>
+<p>exp.py文件</p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/pwn_wp_201.jpg" alt="img4" style="zoom:50%;">
+
+<p>先利用puts获得put的got地址</p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/pwn_wp_202.jpg" alt="img5" style="zoom:50%;">
+
+<p>接收</p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/pwn_wp_203.jpg" alt="img6" style="zoom:50%;">
+
+<p>计算system与puts的偏移量，再得到system的plt获得shell</p>
+<img data-src="https://LZDJVL.github.io/img/wp/pwn/pwn_wp_204.jpg" alt="img7" style="zoom:50%;">
 
       <div class="tags">
-          <a href="/tags/pwn/" rel="tag"><i class="ic i-tag"></i> pwn</a>
+          <a href="/tags/wp-pwn/" rel="tag"><i class="ic i-tag"></i> wp pwn</a>
       </div>
   </div>
 
@@ -170,7 +189,7 @@
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-31 18:58:43" itemprop="dateModified" datetime="2023-07-31T18:58:43+08:00">2023-07-31</time>
+    <time title="修改时间：2023-08-04 16:39:12" itemprop="dateModified" datetime="2023-08-04T16:39:12+08:00">2023-08-04</time>
   </span>
 </div>
 
@@ -183,7 +202,7 @@
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/07/31/pwn%E7%8E%AF%E5%A2%83/" title="pwn环境">http://example.com/2023/07/31/pwn环境/</a>
+    <a href="http://example.com/2023/08/04/wp-pwn/wp-pwn/" title="wp_pwn">http://example.com/2023/08/04/wp-pwn/wp-pwn/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -202,10 +221,10 @@
     <div class="item left">
       
 
-  <a href="/2023/07/28/execrise/exercise05/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gicli3sbvtj20zk0m8x6p.jpg" title="exercise05">
+  <a href="/2023/07/31/pwn%E7%8E%AF%E5%A2%83/pwn%E7%8E%AF%E5%A2%83/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;image.baidu.com&#x2F;search&#x2F;down?url&#x3D;https:&#x2F;&#x2F;lz.sinaimg.cn&#x2F;large&#x2F;6833939bly1gipetv6p75j20zk0m8x6p.jpg" title="pwn环境">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>exercise05</h3>
+  <h3>pwn环境</h3>
   </a>
 
     </div>
@@ -226,6 +245,7 @@
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-bof"><span class="toc-number">1.</span> <span class="toc-text">1.bof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ROP"><span class="toc-number">2.</span> <span class="toc-text">2.ROP</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -241,13 +261,13 @@
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">14</span>
+        <span class="count">15</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">5</span>
+        <span class="count">6</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -317,34 +337,7 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/24/execrise/execrise02/" title="execrise02">execrise02</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/31/pwn%E7%8E%AF%E5%A2%83/" title="pwn环境">pwn环境</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AF%BB%E5%90%8E%E6%84%9F-1/" title="读后感_文件检索与综述1">读后感_文件检索与综述1</a></span>
+    <span><a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB01/" title="FREEWILL通过二进制文件上的参考错误检测UAFbug">FREEWILL通过二进制文件上的参考错误检测UAFbug</a></span>
   </li>
 
       
@@ -362,6 +355,15 @@
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/07/28/execrise/exercise05/" title="exercise05">exercise05</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
@@ -371,7 +373,7 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/27/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB01/" title="FREEWILL通过二进制文件上的参考错误检测UAFbug">FREEWILL通过二进制文件上的参考错误检测UAFbug</a></span>
+    <span><a href="/2023/07/24/execrise/execrise02/" title="execrise02">execrise02</a></span>
   </li>
 
       
@@ -380,7 +382,16 @@
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/post1/" title="post1">post1</a></span>
+    <span><a href="/2023/07/21/pwn/pwn-01/" title="学习pwn的第一天">学习pwn的第一天</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/23/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C01/" title="论文写作01">论文写作01</a></span>
   </li>
 
       
@@ -390,6 +401,15 @@
 </div>
 
     <span><a href="/2023/07/25/execrise/exercise03/" title="exercise03">exercise03</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/09/%E6%9D%82%E9%A1%B9/post1/" title="post1">post1</a></span>
   </li>
 
   </ul>
@@ -430,7 +450,7 @@
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/07/31/pwn环境/',
+    path: '2023/08/04/wp-pwn/wp-pwn/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
